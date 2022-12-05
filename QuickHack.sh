@@ -6,7 +6,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Setup Listner")
-            nc –nlvp 8080
+            nc –lvnp 8080
             ;;
         "Reverse Shell Generator")
             bash shelly.sh
