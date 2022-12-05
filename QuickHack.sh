@@ -9,7 +9,7 @@ do
             nc –lvnp 8080
             ;;
         "Reverse Shell Generator")
-            bash shelly.sh
+            bash shelly.sh -h $IP -p 8080 powershell
             ;;
         "Quit")
             break
