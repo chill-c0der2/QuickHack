@@ -7,7 +7,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Setup Listner")
-            netcat –lvnp 9001
+            nc –lvnp 9001
             ;;
         "Reverse Shell Generator")
             clear
